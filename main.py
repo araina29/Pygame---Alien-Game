@@ -15,21 +15,24 @@ image = pygame.image.load('image.png')
 #X and Y coordinates for player 1 
 x_1 = 400 
 y_1 = 550
-
+change_player = 0
 #showing player one on the screen
-def player():
+def player(x_1,y_1):
     screen.blit(image,(x_1,y_1))
 
 
 #The game loop and used for closing the window
 program_run = True
 while program_run:
+    change_player = 0.1
+    x_1 += change_player
+    y_1 -= change_player
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             program_run = False
     #RGB -- Red, Green ,BLue
     screen.fill((0,0,0))
-    player()
+    player(x_1,y_1)
     pygame.display.update()
 
 
