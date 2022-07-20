@@ -1,4 +1,6 @@
 Learning how to initialise a window firstly 
+
+JULY 20th 
 1. By creating a screen
 2. Then using while loop and setting an algorithm to help close the event
 3. Creating the title and icon of our window -- 
