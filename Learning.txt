@@ -1,0 +1,21 @@
+Learning how to initialise a window firstly 
+1. By creating a screen
+2. Then using while loop and setting an algorithm to help close the event
+3. Creating the title and icon of our window -- 
+Using pygame.display.set_caption("Using our specified title")
+ Use the image module to get the image -- Icon == pyagame.image.load("Name of image")
+ pygame.display.set_icon(icon)
+4. Changing the color on the screen -- 
+ setting RGB values in the screen.fill((R,G,B)) values
+ and then to commit all the changes we use 
+ pygame.display.update(){Telling pygame to edit the display}
+
+5.Adding images to python 
+setting the image to using pygame.image.load("Name of Image")
+Then to show the image on the screen we will set some coordinates
+and simultaneouly use the blit function to draw something on the screen
+
+screen.blit(image,(x_coordinate,y_coordinate))
+
+NOTE :: If u are changing the color of the screen and use fill then print the image after the fill function
+and before the displat.update
