@@ -1,5 +1,5 @@
 import pygame
-
+import random
 #initializing the pygame module
 pygame.init()
 
@@ -21,13 +21,16 @@ def player(x_1,y_1):
     screen.blit(imagep,(x_1,y_1))
 
 imagee = pygame.image.load('alien.png')
-x_2 = 400 
-y_2 = 100
-changee = 0
+x_2 = random.randint(0,800)
+y_2 = random.randint(50,150)
+changeex = 1
+changeey = 40
 #showing enemy one on the screen
 def enemy(x_1,y_1):
     screen.blit(imagee,(x_1,y_1))
 
+#Background
+bg = pygame.image.load("bg.jpg")
 
 #The game loop and used for closing the window
 program_run = True
@@ -46,16 +49,27 @@ while program_run:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or pygame.K_RIGHT: 
                 changep = 0 # changing the movement to 0
+        
 
     #RGB -- Red, Green ,BLue
     screen.fill((0,0,0))
+    # Background image 
+    screen.blit(bg,(0,0))
     # Leading to movement
     x_1 += changep
     if x_1 == 30 :
         x_1 = 30
     elif x_1 >= 770:
         x_1 = 770
+    #Enemy movement 
+    x_2 += changeex # moving the enemy
+    if x_2 == 30 :
+        changeex = 1
+        y_2 += changeey #lowering the enemy by 0.3
+    elif x_2 >= 770:
+         changeex = -1
 
+    
     player(x_1,y_1)
     enemy(x_2,y_2)
     pygame.display.update()
