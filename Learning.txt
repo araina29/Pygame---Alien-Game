@@ -21,3 +21,7 @@ screen.blit(image,(x_coordinate,y_coordinate))
 
 NOTE :: If u are changing the color of the screen and use fill then print the image after the fill function
 and before the displat.update
+
+6.Movement of object inside the game window
+we bassically add or subtract the x,y values of the x,y co ordinate 
+and make the object Move

@@ -15,7 +15,7 @@ image = pygame.image.load('image.png')
 #X and Y coordinates for player 1 
 x_1 = 400 
 y_1 = 550
-change_player = 0
+change = 0
 #showing player one on the screen
 def player(x_1,y_1):
     screen.blit(image,(x_1,y_1))
@@ -24,14 +24,25 @@ def player(x_1,y_1):
 #The game loop and used for closing the window
 program_run = True
 while program_run:
-    change_player = 0.1
-    x_1 += change_player
-    y_1 -= change_player
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             program_run = False
+        
+        #Checking for pressing and releasing of keystrokes respectively
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                change = -0.1
+            if event.key == pygame.K_RIGHT:
+                change = 0.1 
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or pygame.K_RIGHT: 
+                print("released")
+
     #RGB -- Red, Green ,BLue
     screen.fill((0,0,0))
+    x_1 += change
+    y_1 += change
     player(x_1,y_1)
     pygame.display.update()
 
