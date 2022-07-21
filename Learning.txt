@@ -12,7 +12,7 @@ Using pygame.display.set_caption("Using our specified title")
  and then to commit all the changes we use 
  pygame.display.update(){Telling pygame to edit the display}
 
-5.Adding images to python 
+5. Adding images to python --
 setting the image to using pygame.image.load("Name of Image")
 Then to show the image on the screen we will set some coordinates
 and simultaneouly use the blit function to draw something on the screen
@@ -22,6 +22,18 @@ screen.blit(image,(x_coordinate,y_coordinate))
 NOTE :: If u are changing the color of the screen and use fill then print the image after the fill function
 and before the displat.update
 
-6.Movement of object inside the game window
+6. Movement of object inside the game window
 we bassically add or subtract the x,y values of the x,y co ordinate 
 and make the object Move
+
+7. If keystroke is pressed -- right,left
+pygame.KEYDOWN -- checks for any keystroke on the computer
+pygame.K_LEFT -- left arrow
+pygame.K_RIGHT -- right arrow
+
+pygame.KEYUP -- checks for any released  keystroke on the computer
+
+8. Adding boundaries to our game--
+We bassically add a boundary by writing an if condition 
+we check that the X cordinate closes to 0 then it will automatically be changed to 0 
+and then the Y cordinate similarly to the boundary size that we have agreed to have

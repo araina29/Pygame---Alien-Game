@@ -11,14 +11,22 @@ screen = pygame.display.set_mode((800,600))
 pygame.display.set_caption("Space Invaders")
 
 #Adding an image on the screen 
-image = pygame.image.load('image.png')
+imagep = pygame.image.load('image.png')
 #X and Y coordinates for player 1 
 x_1 = 400 
 y_1 = 550
-change = 0
+changep = 0
 #showing player one on the screen
 def player(x_1,y_1):
-    screen.blit(image,(x_1,y_1))
+    screen.blit(imagep,(x_1,y_1))
+
+imagee = pygame.image.load('alien.png')
+x_2 = 400 
+y_2 = 100
+changee = 0
+#showing enemy one on the screen
+def enemy(x_1,y_1):
+    screen.blit(imagee,(x_1,y_1))
 
 
 #The game loop and used for closing the window
@@ -32,18 +40,24 @@ while program_run:
         #Checking for pressing and releasing of keystrokes respectively
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                change = -0.1
+                changep = -0.3 # moving to the left
             if event.key == pygame.K_RIGHT:
-                change = 0.1 
+                changep = 0.3  #moving to the right
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or pygame.K_RIGHT: 
-                print("released")
+                changep = 0 # changing the movement to 0
 
     #RGB -- Red, Green ,BLue
     screen.fill((0,0,0))
-    x_1 += change
-    y_1 += change
+    # Leading to movement
+    x_1 += changep
+    if x_1 == 30 :
+        x_1 = 30
+    elif x_1 >= 770:
+        x_1 = 770
+
     player(x_1,y_1)
+    enemy(x_2,y_2)
     pygame.display.update()
 
 
