@@ -37,3 +37,16 @@ pygame.KEYUP -- checks for any released  keystroke on the computer
 We bassically add a boundary by writing an if condition 
 we check that the X cordinate closes to 0 then it will automatically be changed to 0 
 and then the Y cordinate similarly to the boundary size that we have agreed to have
+
+9. Adding an alien image now similar process as above 
+10.Movement of the enemy
+
+10. Adding a background image -- 
+Similar functions to the one already posted
+
+11.Adding a bullet -- 
+a. adding a bullet image 
+b. making it move using movement commands
+
+12. Adding multiple bullets
+a.
