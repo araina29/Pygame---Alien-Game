@@ -8,7 +8,7 @@ pygame.init()
 #creating a screen with values 800 to 600 as the resolution
 
 screen = pygame.display.set_mode((800,600))
-score = 0
+
 #Setting the title
 pygame.display.set_caption("Space Invaders")
 
@@ -73,8 +73,15 @@ def check_collision(x_2,y_2,x_3,y_3):
         return True
     else:
         return False
-
-
+#showing the value of the score in font arial with size 32 on the top left corner
+#In white color
+score = 0
+font = pygame.font.Font("freesansbold.ttf",32)
+textx = 10
+texty = 10
+def show_score(textx,texty):
+    s_display = font.render("Score : " + str(score),True,(255,255,255))
+    screen.blit(s_display,(textx,texty))
 
 #The game loop and used for closing the window
 program_run = True
@@ -146,6 +153,7 @@ while program_run:
     
         
     player(x_1,y_1)
+    show_score(textx,texty)
     
     pygame.display.update()
 
