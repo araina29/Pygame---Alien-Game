@@ -1,12 +1,14 @@
 import pygame
 import random
+import math 
+
 #initializing the pygame module
 pygame.init()
 
 #creating a screen with values 800 to 600 as the resolution
 
 screen = pygame.display.set_mode((800,600))
-
+score = 0
 #Setting the title
 pygame.display.set_caption("Space Invaders")
 
@@ -50,6 +52,17 @@ def fire_bullet(x_3,y_3):
     bullet_state = "fire"
     #Adding 16 and 10 respectively to get the bullet above the spaceship 
     screen.blit(imageb,(x_3 + 10 ,y_3 + 10))
+
+#checking  for the collision between the bullet and the spaceship
+def check_collision(x_2,y_2,x_3,y_3):
+    #calculating the distance between the bullet and the spaceship
+    D = math.sqrt(math.pow(x_2 - x_3,2) + math.pow(y_2 - y_3,2))
+    if D < 27:
+        return True
+    else:
+        return False
+
+
 
 #The game loop and used for closing the window
 program_run = True
@@ -103,7 +116,16 @@ while program_run:
     if bullet_state is "fire":
         fire_bullet(x_3,y_3)
         y_3 -= bulletpy
-    
+
+    #collision 
+    collision = check_collision(x_2,y_2,x_3,y_3)
+    if collision :
+        y_3 == 550
+        bullet_state = "ready"
+        score += 1
+        x_2 = random.randint(0,800)
+        y_2 = random.randint(50,150)
+        
     player(x_1,y_1)
     enemy(x_2,y_2)
     pygame.display.update()

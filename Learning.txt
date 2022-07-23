@@ -49,4 +49,9 @@ a. adding a bullet image
 b. making it move using movement commands
 
 12. Adding multiple bullets
-a.
+
+13. Adding the collision concept 
+a.We calulate the distance between two points
+using  D = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2)
+We find the distance between the enemy and the bullet
+Then after we check for collision we add a scoring medium and then respawn the enemy
