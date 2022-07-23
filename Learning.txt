@@ -55,3 +55,7 @@ a.We calulate the distance between two points
 using  D = sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2)
 We find the distance between the enemy and the bullet
 Then after we check for collision we add a scoring medium and then respawn the enemy
+
+14. Creating multiple enemies 
+Adding an empty list with the same name as the pyagme.imgae.load
+and then using for loop to add more enemies

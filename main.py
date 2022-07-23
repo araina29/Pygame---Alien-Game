@@ -22,14 +22,26 @@ changep = 0
 def player(x_1,y_1):
     screen.blit(imagep,(x_1,y_1))
 
-imagee = pygame.image.load('alien.png')
-x_2 = random.randint(0,800)
-y_2 = random.randint(50,150)
-changeex = 1
-changeey = 40
+#Enemy
+# Adding multiple enemies
+imagee = []
+x_2 = []
+y_2 = []
+changeex = []
+changeey = []
+num_enemy = 6
+#Using the for loop to get more values in the lists
+for i in range(num_enemy):
+    imagee.append(pygame.image.load('alien.png'))
+    x_2.append(random.randint(0,800))
+    y_2.append(random.randint(50,150))
+    changeex.append(1)
+    changeey.append(40)
+
+
 #showing enemy one on the screen
-def enemy(x_1,y_1):
-    screen.blit(imagee,(x_1,y_1))
+def enemy(x_1,y_1,i):
+    screen.blit(imagee[i],(x_1,y_1))
 
 #Background
 bg = pygame.image.load("bg.jpg")
@@ -100,13 +112,27 @@ while program_run:
     elif x_1 >= 770:
         x_1 = 770
     #Enemy movement 
-    x_2 += changeex # moving the enemy
-    if x_2 == 30 :
-        changeex = 1
-        y_2 += changeey #lowering the enemy by 0.3
-    elif x_2 >= 770:
-         changeex = -1
-         y_2 += changeey
+    for i in range(num_enemy):
+        x_2[i] += changeex[i] # moving the enemy
+        if x_2[i] == 30 :
+            changeex[i] = 1
+            y_2[i] += changeey[i] #lowering the enemy by 0.3
+        elif x_2[i] >= 770:
+            changeex[i] = -1
+            y_2[i] += changeey[i]
+        
+        #collision 
+        collision = check_collision(x_2[i],y_2[i],x_3,y_3)
+        if collision :
+            #Getting the bullet back 
+            y_3 == 550
+            bullet_state = "ready"
+            score += 1
+            #respawning the enemy
+            x_2[i] = random.randint(0,750)
+            y_2[i] = random.randint(50,150)
+        
+        enemy(x_2[i],y_2[i],i)
 
     #bullet Movement
     #shooting multiple bullets
@@ -117,17 +143,10 @@ while program_run:
         fire_bullet(x_3,y_3)
         y_3 -= bulletpy
 
-    #collision 
-    collision = check_collision(x_2,y_2,x_3,y_3)
-    if collision :
-        y_3 == 550
-        bullet_state = "ready"
-        score += 1
-        x_2 = random.randint(0,800)
-        y_2 = random.randint(50,150)
+    
         
     player(x_1,y_1)
-    enemy(x_2,y_2)
+    
     pygame.display.update()
 
 
