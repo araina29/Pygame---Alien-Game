@@ -63,3 +63,4 @@ and then using for loop to add more enemies
 15. Displaying score
 
 16. GAME OVER --
+Just as soon as the enemy spaceships come closer to the player the text game over will be reflected over the screen

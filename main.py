@@ -73,6 +73,12 @@ def check_collision(x_2,y_2,x_3,y_3):
         return True
     else:
         return False
+# Adding a game over text to the program
+font2 = pygame.font.Font("freesansbold.ttf",75)
+def game_over():
+    s_display = font2.render("GAME OVER",True,(255,255,0))
+    screen.blit(s_display,(200,250))
+
 #showing the value of the score in font arial with size 32 on the top left corner
 #In white color
 score = 0
@@ -120,6 +126,12 @@ while program_run:
         x_1 = 770
     #Enemy movement 
     for i in range(num_enemy):
+        #Game over
+        if y_2[i] > 500:
+            for j in range(num_enemy):
+                y_2[j] = 2000
+            game_over()
+            break
         x_2[i] += changeex[i] # moving the enemy
         if x_2[i] == 30 :
             changeex[i] = 1
