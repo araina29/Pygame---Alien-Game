@@ -1,4 +1,4 @@
-# Using pygame to make a Game
+# Using pygame to make a Game in which an robot hits an alien 
 
 1. Learning pygame from YT video
 Namely -- Pygame Tutorial for Beginners - Python Game Development Course
